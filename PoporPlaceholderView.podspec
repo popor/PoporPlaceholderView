@@ -8,11 +8,10 @@
 
 Pod::Spec.new do |s|
   s.name        = 'PoporPlaceholderView'
-  s.version     = '0.0.01'
+  s.version     = '0.0.02'
   s.summary     = 'PlaceholderView uesd for UITableView and UICollectionView.'
 
   s.homepage    = 'https://github.com/popor/PoporPlaceholderView'
-  s.screenshots = 'https://github.com/popor/PoporPlaceholderView/blob/master/Example/PoporPlaceholderView/image/screen1.png'
   s.license     = { :type => 'MIT', :file => 'LICENSE' }
   s.author      = { 'popor' => '908891024@qq.com' }
   s.source      = { :git => 'https://github.com/popor/PoporPlaceholderView.git', :tag => s.version.to_s }

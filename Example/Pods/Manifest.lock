@@ -5,7 +5,7 @@ PODS:
   - PoporFoundation/PrefixCore (0.0.27):
     - PoporFoundation/PrefixOs
   - PoporFoundation/PrefixOs (0.0.27)
-  - PoporPlaceholderView (0.0.01):
+  - PoporPlaceholderView (0.0.02):
     - Masonry
     - MJRefresh
     - PoporFoundation/NSObject
@@ -31,7 +31,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   PoporFoundation: 272b2422b3a1808a8446de2aed3b86d8cc49d328
-  PoporPlaceholderView: 2e740aa51514ddcfc07f05621564e9b929618d7c
+  PoporPlaceholderView: 428a55e56177775ecdc1f5b5ae5933d91cc55e30
   PoporUI: c1ec64684ec810020cd30b518aba1a60ca013832
 
 PODFILE CHECKSUM: c8353af656f4368db75247769cdd649fbe65a7f2

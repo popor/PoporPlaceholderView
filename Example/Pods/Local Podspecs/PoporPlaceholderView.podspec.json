@@ -1,9 +1,8 @@
 {
   "name": "PoporPlaceholderView",
-  "version": "0.0.01",
+  "version": "0.0.02",
   "summary": "PlaceholderView uesd for UITableView and UICollectionView.",
   "homepage": "https://github.com/popor/PoporPlaceholderView",
-  "screenshots": "https://github.com/popor/PoporPlaceholderView/blob/master/Example/PoporPlaceholderView/image/screen1.png",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -13,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/popor/PoporPlaceholderView.git",
-    "tag": "0.0.01"
+    "tag": "0.0.02"
   },
   "platforms": {
     "ios": "8.0"
