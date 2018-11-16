@@ -1,0 +1,6 @@
+framework module PoporPlaceholderView {
+  umbrella header "PoporPlaceholderView-umbrella.h"
+
+  export *
+  module * { export * }
+}

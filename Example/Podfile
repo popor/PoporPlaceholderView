@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PoporPlaceholderView_Example' do
+  pod 'PoporPlaceholderView', :path => '../'
+
+  target 'PoporPlaceholderView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
