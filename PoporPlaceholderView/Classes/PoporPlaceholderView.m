@@ -114,7 +114,7 @@
 #pragma mark - 刷新图片文字
 - (void)freshStatus {
     if (self.pNewType != self.pOldType) {
-        self.pOldType = pNewType;
+        self.pOldType = self.pNewType;
         switch (self.pOldType) {
             case PoporPlaceholderTypeNullInfo:
                 self.iv.image = [self imageBundleNamed:PoporPlaceholderTypeNullInfoImage];
