@@ -68,7 +68,7 @@
 		A6D551328EC6F40E7150E627 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B61B9A8B4620F82E79961778 /* Pods_PoporPlaceholderView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoporPlaceholderView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61FE5361ABB507A7AD60A8F /* Pods-PoporPlaceholderView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoporPlaceholderView_Example.debug.xcconfig"; path = "Target Support Files/Pods-PoporPlaceholderView_Example/Pods-PoporPlaceholderView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E5C3306179BA9A04190BC5DE /* PoporPlaceholderView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PoporPlaceholderView.podspec; path = ../PoporPlaceholderView.podspec; sourceTree = "<group>"; };
+		E5C3306179BA9A04190BC5DE /* PoporPlaceholderView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PoporPlaceholderView.podspec; path = ../PoporPlaceholderView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +266,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = popor;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 6SK6RQ8S8Q;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -276,6 +279,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -341,8 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PoporPlaceholderView_Example/Pods-PoporPlaceholderView_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -352,8 +354,6 @@
 				"${BUILT_PRODUCTS_DIR}/PoporUI/PoporUI.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -525,11 +525,12 @@
 			baseConfigurationReference = C61FE5361ABB507A7AD60A8F /* Pods-PoporPlaceholderView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6SK6RQ8S8Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PoporPlaceholderView/PoporPlaceholderView-Prefix.pch";
 				INFOPLIST_FILE = "PoporPlaceholderView/PoporPlaceholderView-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifcar99.wkq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -540,11 +541,12 @@
 			baseConfigurationReference = 09BF9CED0B658713FB7EFDE1 /* Pods-PoporPlaceholderView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6SK6RQ8S8Q;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PoporPlaceholderView/PoporPlaceholderView-Prefix.pch";
 				INFOPLIST_FILE = "PoporPlaceholderView/PoporPlaceholderView-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ifcar99.wkq;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

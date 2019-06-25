@@ -65,7 +65,7 @@
     
     [self tableView:weakTV freshMore:YES];
     
-    weakTV.placeHolderView = [[PoporPlaceholderView alloc] initWithFrame:weakTV.bounds title:nil image:nil clickBlock:^{
+    weakTV.placeHolderView = [[PoporPlaceholderView alloc] initWithFrame:weakTV.bounds title:nil image:nil viewBlock:^{
         [weakTV.mj_header beginRefreshing];
     } showBlock:nil];
 }

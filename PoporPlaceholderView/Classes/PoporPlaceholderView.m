@@ -13,16 +13,16 @@
 @implementation PoporPlaceholderView
 @synthesize pOldType, pNewType;
 
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image clickBlock:(BlockPVoid)clickBlock {
-    return [self initWithFrame:frame title:title image:image clickBlock:clickBlock showBlock:nil];
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock {
+    return [self initWithFrame:frame title:title image:image viewBlock:viewBlock showBlock:nil];
 }
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image clickBlock:(BlockPVoid)clickBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock {
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock {
     if (self = [super init]) {
         self.frame = frame;
         self.backgroundColor = [UIColor clearColor];
         self.title = title ? : @"";
         self.image = image ? : [UIImage imageFromColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
-        self.clickBlock = clickBlock;
+        self.viewClickBlock = viewBlock;
         self.showBlock  = showBlock;
         [self addViews];
     }
@@ -56,9 +56,19 @@
         
         [self addSubview:self.l];
     }
-    if (!self.tapGR) {
-        self.tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGRAction)];
-        [self addGestureRecognizer:self.tapGR];
+    if (!self.viewTapGR) {
+        self.viewTapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapGRAction)];
+        [self addGestureRecognizer:self.viewTapGR];
+    }
+    
+    if (!self.lTapGR) {
+        self.lTapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lTapGRAction)];
+        [self.l addGestureRecognizer:self.lTapGR];
+    }
+    
+    if (!self.ivTapGR) {
+        self.ivTapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ivTapGRAction)];
+        [self.iv addGestureRecognizer:self.ivTapGR];
     }
     
     [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,9 +97,22 @@
         self.showBlock(NO, self);
     }
 }
-- (void)tapGRAction {
-    if (self.clickBlock) {
-        self.clickBlock();
+
+- (void)viewTapGRAction {
+    if (self.viewClickBlock) {
+        self.viewClickBlock();
+    }
+}
+
+- (void)lTapGRAction {
+    if (self.lClickBlock) {
+        self.lClickBlock();
+    }
+}
+
+- (void)ivTapGRAction {
+    if (self.ivClickBlock) {
+        self.ivClickBlock();
     }
 }
 
@@ -109,6 +132,18 @@
     }else{
         _image = image;
     }
+}
+
+- (void)setLClickBlock:(BlockPVoid)lClickBlock {
+    _lClickBlock = lClickBlock;
+    _l.userInteractionEnabled = lClickBlock ? YES:NO ;
+    
+}
+
+- (void)setIvClickBlock:(BlockPVoid)ivClickBlock {
+    _ivClickBlock = ivClickBlock;
+    _iv.userInteractionEnabled = ivClickBlock ? YES:NO ;
+    
 }
 
 #pragma mark - 刷新图片文字

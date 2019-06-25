@@ -15,17 +15,22 @@ typedef void(^PoporPlaceholderViewShowBlock) (BOOL isShow, PoporPlaceholderView 
 
 @interface PoporPlaceholderView : UIView <PlaceholderViewProtocol>
 
-@property (nonatomic, strong) NSString        * title;
-@property (nonatomic, strong) UIImage         * image;
+@property (nonatomic, strong) NSString    * title; // 只在初始化时候用到,以后可以在freshStatus使用NSMutableAttributedString
+@property (nonatomic, strong) UIImage     * image;
+@property (nonatomic, strong) UILabel     * l;
+@property (nonatomic, strong) UIImageView * iv;
 
-@property (nonatomic, strong) UILabel         * l;
-@property (nonatomic, strong) UIImageView     * iv;
-@property (nonatomic, copy  ) BlockPVoid clickBlock;
 @property (nonatomic, copy  ) PoporPlaceholderViewShowBlock showBlock;
-@property (nonatomic, strong) UITapGestureRecognizer * tapGR;
+@property (nonatomic, strong) UITapGestureRecognizer * viewTapGR;
+@property (nonatomic, strong) UITapGestureRecognizer * lTapGR;
+@property (nonatomic, strong) UITapGestureRecognizer * ivTapGR;
 
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image clickBlock:(BlockPVoid)clickBlock;
+@property (nonatomic, copy  ) BlockPVoid viewClickBlock;
+@property (nonatomic, copy  ) BlockPVoid lClickBlock; // 需要单独设置
+@property (nonatomic, copy  ) BlockPVoid ivClickBlock; // 需要单独设置
 
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image clickBlock:(BlockPVoid)clickBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock;
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock;
+
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock;
 
 @end
