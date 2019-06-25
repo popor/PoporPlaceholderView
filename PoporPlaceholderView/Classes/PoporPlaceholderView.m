@@ -13,10 +13,10 @@
 @implementation PoporPlaceholderView
 @synthesize pOldType, pNewType;
 
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock {
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock {
     return [self initWithFrame:frame title:title image:image viewBlock:viewBlock showBlock:nil];
 }
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock {
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock {
     if (self = [super init]) {
         self.frame = frame;
         self.backgroundColor = [UIColor clearColor];
@@ -100,19 +100,19 @@
 
 - (void)viewTapGRAction {
     if (self.viewClickBlock) {
-        self.viewClickBlock();
+        self.viewClickBlock(self);
     }
 }
 
 - (void)lTapGRAction {
     if (self.lClickBlock) {
-        self.lClickBlock();
+        self.lClickBlock(self);
     }
 }
 
 - (void)ivTapGRAction {
     if (self.ivClickBlock) {
-        self.ivClickBlock();
+        self.ivClickBlock(self);
     }
 }
 
@@ -134,13 +134,13 @@
     }
 }
 
-- (void)setLClickBlock:(BlockPVoid)lClickBlock {
+- (void)setLClickBlock:(PoporPlaceholderViewBlock)lClickBlock {
     _lClickBlock = lClickBlock;
     _l.userInteractionEnabled = lClickBlock ? YES:NO ;
     
 }
 
-- (void)setIvClickBlock:(BlockPVoid)ivClickBlock {
+- (void)setIvClickBlock:(PoporPlaceholderViewBlock)ivClickBlock {
     _ivClickBlock = ivClickBlock;
     _iv.userInteractionEnabled = ivClickBlock ? YES:NO ;
     

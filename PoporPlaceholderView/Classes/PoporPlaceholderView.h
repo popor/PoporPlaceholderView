@@ -12,6 +12,7 @@
 
 @class PoporPlaceholderView;
 typedef void(^PoporPlaceholderViewShowBlock) (BOOL isShow, PoporPlaceholderView * placeholderView);
+typedef void(^PoporPlaceholderViewBlock) (PoporPlaceholderView * placeholderView);
 
 @interface PoporPlaceholderView : UIView <PlaceholderViewProtocol>
 
@@ -25,12 +26,12 @@ typedef void(^PoporPlaceholderViewShowBlock) (BOOL isShow, PoporPlaceholderView 
 @property (nonatomic, strong) UITapGestureRecognizer * lTapGR;
 @property (nonatomic, strong) UITapGestureRecognizer * ivTapGR;
 
-@property (nonatomic, copy  ) BlockPVoid viewClickBlock;
-@property (nonatomic, copy  ) BlockPVoid lClickBlock; // 需要单独设置
-@property (nonatomic, copy  ) BlockPVoid ivClickBlock; // 需要单独设置
+@property (nonatomic, copy  ) PoporPlaceholderViewBlock viewClickBlock;
+@property (nonatomic, copy  ) PoporPlaceholderViewBlock lClickBlock; // 需要单独设置
+@property (nonatomic, copy  ) PoporPlaceholderViewBlock ivClickBlock; // 需要单独设置
 
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock;
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock;
 
-- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(BlockPVoid)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock;
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock;
 
 @end

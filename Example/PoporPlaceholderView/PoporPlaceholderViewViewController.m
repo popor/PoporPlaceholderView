@@ -65,9 +65,13 @@
     
     [self tableView:weakTV freshMore:YES];
     
-    weakTV.placeHolderView = [[PoporPlaceholderView alloc] initWithFrame:weakTV.bounds title:nil image:nil viewBlock:^{
+    weakTV.placeHolderView = [[PoporPlaceholderView alloc] initWithFrame:weakTV.bounds title:nil image:nil viewBlock:^(BOOL isShow, PoporPlaceholderView *placeholderView) {
         [weakTV.mj_header beginRefreshing];
-    } showBlock:nil];
+        
+    } showBlock:^(BOOL isShow, PoporPlaceholderView *placeholderView) {
+        
+    }];
+    
 }
 
 - (void)tableView:(UITableView *)tableView freshMore:(BOOL)isMore {
