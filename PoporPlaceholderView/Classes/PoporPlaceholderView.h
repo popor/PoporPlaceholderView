@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <PoporFoundation/PrefixBlock.h>
+#import <PoporFoundation/Block+pPrefix.h>
 #import "PlaceholderViewProtocol.h"
 
 @class PoporPlaceholderView;

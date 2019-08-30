@@ -1,13 +1,13 @@
 //
-//  UIImage+gradient.m
-//  Pods-PoporUI_Example
+//  UIImage+pGradient.m
+//  PoporUI
 //
 //  Created by apple on 2018/11/9.
-//
+//  Copyright © 2018年 popor. All rights reserved.
 
-#import "UIImage+gradient.h"
+#import "UIImage+pGradient.h"
 
-@implementation UIImage (gradient)
+@implementation UIImage (pGradient)
 
 /**
  *  获取矩形的渐变色的UIImage(此函数还不够完善)

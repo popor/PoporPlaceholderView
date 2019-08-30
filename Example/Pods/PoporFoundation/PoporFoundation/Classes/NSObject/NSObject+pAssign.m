@@ -1,17 +1,20 @@
 //
-//  NSObject+assign.m
-//  term
+//  NSObject+pAssign.m
+//  PoporFoundation
 //
 //  Created by apple on 2018/12/13.
 //  Copyright © 2018 apple. All rights reserved.
 //
 
-#import "NSObject+assign.h"
+#import "NSObject+pAssign.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (assign)
+@implementation NSObject (pAssign)
 
-- (void)assignInt:(int)intValue string:(NSString *)string {
+- (void)assignInt:(int)intValue string:(NSString * _Nullable)string {
+    if (!string) {
+        string = @"";
+    }
     NSObject * entity = self;
     unsigned propertyCount;
     
@@ -47,6 +50,45 @@
         }
         else if ([propAttributesString hasPrefix:@"T@\"NSNumber\""]){
             [entity setValue:[NSNumber numberWithInt:intValue] forKey:propNameString];
+        }
+    }
+    
+    free(properties);
+}
+
+// 假如string为空那么设置为 value
+- (void)assignNilString:(NSString * _Nullable)strValue {
+    if (!strValue) {
+        return;
+    }
+    NSObject * entity = self;
+    unsigned propertyCount;
+    
+    objc_property_t *properties = class_copyPropertyList([entity class],&propertyCount);
+    for(int i=0; i<propertyCount; i++){
+        NSString * propNameString;
+        NSString * propAttributesString;
+        
+        objc_property_t prop=properties[i];
+        
+        const char *propName = property_getName(prop);
+        propNameString =[NSString stringWithCString:propName encoding:NSASCIIStringEncoding];
+        
+        const char * propAttributes=property_getAttributes(prop);
+        propAttributesString =[NSString stringWithCString:propAttributes encoding:NSASCIIStringEncoding];
+        
+        //NSLog(@"propNameString: %@, propAttributesString:%@", propNameString, propAttributesString);
+        // 根据各个情况处理.
+        if ([propAttributesString hasPrefix:@"T@\"NSString\""]){
+            NSString * oldStr = [self valueForKey:propNameString];
+            if (oldStr.length == 0) {
+                [entity setValue:strValue forKey:propNameString];
+            }
+        }else if ([propAttributesString hasPrefix:@"T@\"NSMutableString\""]){
+            NSString * oldStr = [self valueForKey:propNameString];
+            if (oldStr.length == 0) {
+                [entity setValue:[[NSMutableString alloc] initWithString:strValue] forKey:propNameString];
+            }
         }
     }
     

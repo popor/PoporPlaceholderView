@@ -1,5 +1,5 @@
 //
-//  UIImage+Tool.h
+//  UIImage+pTool.h
 //  PoporUI
 //
 //  Created by popor on 2018/6/19.
@@ -7,10 +7,10 @@
 //
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Tool)
+@interface UIImage (pTool)
 
 #pragma mark - 或许模仿苹果聊天的背景图片
-+ (UIImage *)stretchableImage:(NSString *)imageName withOrient:(UIImageOrientation)direction withPoint:(CGPoint)thePoint;
++ (UIImage *)stretchableImage:(UIImage *)image orient:(UIImageOrientation)direction point:(CGPoint)point;
 
 + (NSString *)getAppLaunchImage;
 

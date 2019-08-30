@@ -1,13 +1,13 @@
 //
-//  UIImage+create.m
-//  Pods-PoporUI_Example
+//  UIImage+pCreate.m
+//  PoporUI
 //
 //  Created by apple on 2018/11/9.
-//
+//  Copyright © 2018年 popor. All rights reserved.
 
-#import "UIImage+create.h"
+#import "UIImage+pCreate.h"
 
-@implementation UIImage (create)
+@implementation UIImage (pCreate)
 
 #pragma mark - 生成:根据颜色
 // 不继承最全的函数,是为了省资源

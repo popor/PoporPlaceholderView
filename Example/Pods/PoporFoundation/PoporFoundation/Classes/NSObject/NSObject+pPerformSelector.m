@@ -1,15 +1,15 @@
 //
-//  NSObject+performSelector.m
-//  Term
+//  NSObject+pPerformSelector.m
+//  PoporFoundation
 //
 //  Created by popor on 2017/10/25.
 //  Copyright © 2017年 popor. All rights reserved.
 //
 
-#import "NSObject+performSelector.h"
+#import "NSObject+pPerformSelector.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (performSelector)
+@implementation NSObject (pPerformSelector)
 
 + (void)target:(id)target voidAction:(SEL)action {
     if (!target) { return; }

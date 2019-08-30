@@ -8,7 +8,7 @@
 
 #import "PoporPlaceholderView.h"
 #import <Masonry/Masonry.h>
-#import <PoporUI/UIImage+create.h>
+#import <PoporUI/UIImage+pCreate.h>
 
 @implementation PoporPlaceholderView
 @synthesize pOldType, pNewType;

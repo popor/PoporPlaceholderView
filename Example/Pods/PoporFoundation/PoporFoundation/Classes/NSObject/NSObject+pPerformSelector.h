@@ -1,12 +1,14 @@
 //
-//  NSObject+performSelector.h
-//  Term
+//  NSObject+pPerformSelector.h
+//  PoporFoundation
 //
 //  Created by popor on 2017/10/25.
 //  Copyright © 2017年 popor. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 #define SuppressPerformSelectorLeakWarning(Stuff) \
 do { \
@@ -23,8 +25,10 @@ _Pragma("clang diagnostic pop") \
  
  */
 
-@interface NSObject (performSelector)
+@interface NSObject (pPerformSelector)
 
 + (void)target:(id)target voidAction:(SEL)action;
 
 @end
+
+NS_ASSUME_NONNULL_END

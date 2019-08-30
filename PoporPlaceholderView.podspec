@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name        = 'PoporPlaceholderView'
-  s.version     = '0.0.05'
+  s.version     = '1.01'
   s.summary     = 'PlaceholderView uesd for UITableView and UICollectionView.'
 
   s.homepage    = 'https://github.com/popor/PoporPlaceholderView'
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   
   s.dependency 'Masonry'
   s.dependency 'MJRefresh'
-  s.dependency 'PoporFoundation/PrefixCore'
+  s.dependency 'PoporFoundation/Prefix'
   s.dependency 'PoporFoundation/NSObject'
   s.dependency 'PoporUI/UIImage'
   

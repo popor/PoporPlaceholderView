@@ -1,13 +1,13 @@
 //
-//  UIImage+read.m
-//  Pods-PoporUI_Example
+//  UIImage+pRead.m
+//  PoporUI
 //
 //  Created by apple on 2018/11/9.
-//
+//  Copyright © 2018年 popor. All rights reserved.
 
-#import "UIImage+read.h"
+#import "UIImage+pRead.h"
 
-@implementation UIImage (read)
+@implementation UIImage (pRead)
 
 + (NSString *)absoPathInBundleResource:(NSString *)fileName {
     return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
