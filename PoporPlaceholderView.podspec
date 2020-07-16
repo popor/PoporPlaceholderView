@@ -19,7 +19,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   
   s.source_files = 'PoporPlaceholderView/Classes/*.{h,m}'
-  s.resource     = 'PoporPlaceholderView/Classes/PoporPlaceholderView.bundle'
+  
+  # 不再使用sdk图片, 有点多余
+  #s.resource     = 'PoporPlaceholderView/Classes/PoporPlaceholderView.bundle'
   
   s.dependency 'Masonry'
   s.dependency 'MJRefresh'

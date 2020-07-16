@@ -18,12 +18,20 @@
 }
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock {
     if (self = [super init]) {
-        self.frame = frame;
-        self.backgroundColor = [UIColor clearColor];
-        self.title = title ? : @"";
-        self.image = image ? : [UIImage imageFromColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
-        self.viewClickBlock = viewBlock;
-        self.showBlock  = showBlock;
+        self.frame           = frame;
+        self.backgroundColor  = [UIColor clearColor];
+        self.title            = title ? : @"";
+        self.image            = image ? : [UIImage imageFromColor:[UIColor clearColor] size:CGSizeMake(1, 1)];
+        self.viewClickBlock   = viewBlock;
+        self.showBlock        = showBlock;
+
+        self.text_nullInfo    = @"暂时还没有数据";
+        self.text_nullMessage = @"暂无相关内容";
+        self.text_nullSearch  = @"没有搜到相关内容";
+        self.text_netError    = @"网络连接失败";
+        self.text_serverError = @"系统出错，请稍后再试";
+        self.text_unlogin     = @"您还未登录";
+
         [self addViews];
     }
     return self;
@@ -151,26 +159,36 @@
     if (self.pNewType != self.pOldType) {
         self.pOldType = self.pNewType;
         switch (self.pOldType) {
-            case PoporPlaceholderTypeNullInfo:
-                self.iv.image = [self imageBundleNamed:PoporPlaceholderTypeNullInfoImage];
-                self.l.text   = @"暂时还没有数据";
+            case PoporPlaceholderTypeNullInfo: {
+                self.iv.image = [UIImage imageNamed:self.image_nullInfo];
+                self.l.text   = self.text_nullInfo;
                 break;
-            case PoporPlaceholderTypeNullMessage:
-                self.iv.image = [self imageBundleNamed:PoporPlaceholderTypeNullMessageImage];
-                self.l.text   = @"暂无相关内容";
+            }
+            case PoporPlaceholderTypeNullMessage: {
+                self.iv.image = [UIImage imageNamed:self.image_nullMessage];
+                self.l.text   = self.text_nullMessage;
                 break;
-            case PoporPlaceholderTypeNullSearch:
-                self.iv.image = [self imageBundleNamed:PoporPlaceholderTypeNullSearchImage];
-                self.l.text   = @"没有搜到相关内容";
+            }
+            case PoporPlaceholderTypeNullSearch: {
+                self.iv.image = [UIImage imageNamed:self.image_nullSearch];
+                self.l.text   = self.text_nullSearch;
                 break;
-            case PoporPlaceholderTypeNetError:
-                self.iv.image = [self imageBundleNamed:PoporPlaceholderTypeNetErrorImage];
-                self.l.text   = @"网络连接失败";
+            }
+            case PoporPlaceholderTypeNetError: {
+                self.iv.image = [UIImage imageNamed:self.image_netError];
+                self.l.text   = self.text_netError;
                 break;
-            case PoporPlaceholderTypeServerError:
-                self.iv.image = [self imageBundleNamed:PoporPlaceholderTypeServerErrorImage];
-                self.l.text   = @"系统出错，请稍后再试";
+            }
+            case PoporPlaceholderTypeServerError: {
+                self.iv.image = [UIImage imageNamed:self.image_serverError];
+                self.l.text   = self.text_serverError;
                 break;
+            }
+            case PoporPlaceholderTypeUnlogin: {
+                self.iv.image = [UIImage imageNamed:self.image_unlogin];
+                self.l.text   = self.text_unlogin;
+                break;
+            }
                 
             default:
                 break;

@@ -30,6 +30,21 @@ typedef void(^PoporPlaceholderViewBlock) (PoporPlaceholderView * placeholderView
 @property (nonatomic, copy  ) PoporPlaceholderViewBlock lClickBlock; // 需要单独设置
 @property (nonatomic, copy  ) PoporPlaceholderViewBlock ivClickBlock; // 需要单独设置
 
+@property (nonatomic, copy  ) NSString * image_nullInfo;
+@property (nonatomic, copy  ) NSString * image_nullMessage;
+@property (nonatomic, copy  ) NSString * image_nullSearch;
+@property (nonatomic, copy  ) NSString * image_netError;
+@property (nonatomic, copy  ) NSString * image_serverError;
+@property (nonatomic, copy  ) NSString * image_unlogin;
+
+@property (nonatomic, copy  ) NSString * text_nullInfo;
+@property (nonatomic, copy  ) NSString * text_nullMessage;
+@property (nonatomic, copy  ) NSString * text_nullSearch;
+@property (nonatomic, copy  ) NSString * text_netError;
+@property (nonatomic, copy  ) NSString * text_serverError;
+@property (nonatomic, copy  ) NSString * text_unlogin;
+
+
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock;
 
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock showBlock:(PoporPlaceholderViewShowBlock)showBlock;

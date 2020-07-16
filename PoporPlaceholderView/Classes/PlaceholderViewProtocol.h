@@ -15,13 +15,8 @@ typedef NS_ENUM (int, PoporPlaceholderType) {
     PoporPlaceholderTypeNullSearch,   // 无搜索信息
     PoporPlaceholderTypeNetError,     // 网络出错
     PoporPlaceholderTypeServerError,  // 服务器出错
+    PoporPlaceholderTypeUnlogin,      // 未登录
 };
-
-static NSString * PoporPlaceholderTypeNullInfoImage    = @"AppBankNullInfo";
-static NSString * PoporPlaceholderTypeNullMessageImage = @"AppBankNullMessage";
-static NSString * PoporPlaceholderTypeNullSearchImage  = @"AppBankNullSearch";
-static NSString * PoporPlaceholderTypeNetErrorImage    = @"AppBankNetError";
-static NSString * PoporPlaceholderTypeServerErrorImage = @"AppBankServerError";
 
 @protocol PlaceholderViewProtocol <NSObject>
 
