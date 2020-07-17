@@ -44,6 +44,14 @@ typedef void(^PoporPlaceholderViewBlock) (PoporPlaceholderView * placeholderView
 @property (nonatomic, copy  ) NSString * text_serverError;
 @property (nonatomic, copy  ) NSString * text_unlogin;
 
+// 如果设置了att, 则不适用text.
+@property (nonatomic, strong) NSMutableAttributedString * att_nullInfo;
+@property (nonatomic, strong) NSMutableAttributedString * att_nullMessage;
+@property (nonatomic, strong) NSMutableAttributedString * att_nullSearch;
+@property (nonatomic, strong) NSMutableAttributedString * att_netError;
+@property (nonatomic, strong) NSMutableAttributedString * att_serverError;
+@property (nonatomic, strong) NSMutableAttributedString * att_unlogin;
+
 
 - (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title image:(UIImage *)image viewBlock:(PoporPlaceholderViewBlock)viewBlock;
 

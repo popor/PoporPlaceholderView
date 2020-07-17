@@ -56,11 +56,10 @@
         self.l.font = [UIFont systemFontOfSize:16];
         self.l.textColor = [UIColor grayColor];
         self.l.textAlignment = NSTextAlignmentCenter;
-        
+        self.l.numberOfLines = 0;
         self.l.text = self.title;
         
         [self.l setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-        self.l.numberOfLines =0;
         
         [self addSubview:self.l];
     }
@@ -161,32 +160,62 @@
         switch (self.pOldType) {
             case PoporPlaceholderTypeNullInfo: {
                 self.iv.image = [UIImage imageNamed:self.image_nullInfo];
-                self.l.text   = self.text_nullInfo;
+                
+                if (self.att_nullInfo) {
+                    self.l.attributedText = self.att_nullInfo;
+                } else {
+                    self.l.text   = self.text_nullInfo;
+                }
                 break;
             }
             case PoporPlaceholderTypeNullMessage: {
                 self.iv.image = [UIImage imageNamed:self.image_nullMessage];
-                self.l.text   = self.text_nullMessage;
+                
+                if (self.att_nullMessage) {
+                    self.l.attributedText = self.att_nullMessage;
+                } else {
+                    self.l.text   = self.text_nullMessage;
+                }
                 break;
             }
             case PoporPlaceholderTypeNullSearch: {
                 self.iv.image = [UIImage imageNamed:self.image_nullSearch];
-                self.l.text   = self.text_nullSearch;
+                
+                if (self.att_nullSearch) {
+                    self.l.attributedText = self.att_nullSearch;
+                } else {
+                    self.l.text   = self.text_nullSearch;
+                }
                 break;
             }
             case PoporPlaceholderTypeNetError: {
                 self.iv.image = [UIImage imageNamed:self.image_netError];
-                self.l.text   = self.text_netError;
+                
+                if (self.att_netError) {
+                    self.l.attributedText = self.att_netError;
+                } else {
+                    self.l.text   = self.text_netError;
+                }
                 break;
             }
             case PoporPlaceholderTypeServerError: {
                 self.iv.image = [UIImage imageNamed:self.image_serverError];
-                self.l.text   = self.text_serverError;
+                
+                if (self.att_serverError) {
+                    self.l.attributedText = self.att_serverError;
+                } else {
+                    self.l.text   = self.text_serverError;
+                }
                 break;
             }
             case PoporPlaceholderTypeUnlogin: {
                 self.iv.image = [UIImage imageNamed:self.image_unlogin];
-                self.l.text   = self.text_unlogin;
+                
+                if (self.att_unlogin) {
+                    self.l.attributedText = self.att_unlogin;
+                } else {
+                    self.l.text   = self.text_unlogin;
+                }
                 break;
             }
                 
