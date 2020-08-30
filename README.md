@@ -33,6 +33,10 @@ pod 'PoporPlaceholderView'
 
 </p>
 
+1.02
+增加了placeHolderEmptyBlock
+假如section = 3, 只有最后section为空或者全部为空的时候显示placeHolderView, 这就需要自定义placeHolderEmptyBlock了.
+
 ## Author
 
 popor, 908891024@qq.com

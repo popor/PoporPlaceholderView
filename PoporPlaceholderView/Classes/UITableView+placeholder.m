@@ -15,6 +15,7 @@
 
 @implementation UITableView (placeholder)
 @dynamic placeHolderView;
+@dynamic placeHolderEmptyBlock;
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -33,16 +34,20 @@
         return;
     }
     BOOL isEmpty = YES;
-    id<UITableViewDataSource> src = self.dataSource;
-    NSInteger sections = 1;
-    if ([src respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
-        sections = [src numberOfSectionsInTableView:self];
-    }
-    for (int i = 0; i < sections; i++) {
-        NSInteger rows = [src tableView:self numberOfRowsInSection:i];
-        if (rows>0) {
-            isEmpty = NO;
-            break;
+    if (self.placeHolderEmptyBlock) {
+        isEmpty = self.placeHolderEmptyBlock(self, self.placeHolderView);
+    } else {
+        id<UITableViewDataSource> src = self.dataSource;
+        NSInteger sections = 1;
+        if ([src respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+            sections = [src numberOfSectionsInTableView:self];
+        }
+        for (int i = 0; i < sections; i++) {
+            NSInteger rows = [src tableView:self numberOfRowsInSection:i];
+            if (rows>0) {
+                isEmpty = NO;
+                break;
+            }
         }
     }
     if (isEmpty) {
@@ -64,5 +69,14 @@
 - (UIView *)placeHolderView {
     return objc_getAssociatedObject(self, @"placeHolderView");
 }
+
+- (void)setPlaceHolderEmptyBlock:(UITableViewPlaceHolderEmptyBlock)placeHolderEmptyBlock {
+    objc_setAssociatedObject(self, @"placeHolderEmptyBlock", placeHolderEmptyBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (UITableViewPlaceHolderEmptyBlock)placeHolderEmptyBlock {
+    return objc_getAssociatedObject(self, @"placeHolderEmptyBlock");
+}
+
 
 @end

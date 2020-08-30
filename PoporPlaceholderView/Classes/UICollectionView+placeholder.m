@@ -14,6 +14,7 @@
 
 @implementation UICollectionView (placeholder)
 @dynamic placeHolderView;
+@dynamic placeHolderEmptyBlock;
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -32,19 +33,24 @@
         return;
     }
     BOOL isEmpty = YES;
-    id<UICollectionViewDataSource> src = self.dataSource;
-    NSInteger sections = 1;
-    if ([src respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
-        sections = [src numberOfSectionsInCollectionView:self];
-        //[src numberOfSectionsInTableView:self];
-    }
-    for (int i = 0; i < sections; i++) {
-        NSInteger rows = [src collectionView:self numberOfItemsInSection:i];
-        if (rows>0) {
-            isEmpty = NO;
-            break;
+    if (self.placeHolderEmptyBlock) {
+        isEmpty = self.placeHolderEmptyBlock(self, self.placeHolderView);
+    } else {
+        id<UICollectionViewDataSource> src = self.dataSource;
+        NSInteger sections = 1;
+        if ([src respondsToSelector:@selector(numberOfSectionsInCollectionView:)]) {
+            sections = [src numberOfSectionsInCollectionView:self];
+            //[src numberOfSectionsInTableView:self];
+        }
+        for (int i = 0; i < sections; i++) {
+            NSInteger rows = [src collectionView:self numberOfItemsInSection:i];
+            if (rows>0) {
+                isEmpty = NO;
+                break;
+            }
         }
     }
+    
     if (isEmpty) {
         [self addSubview:self.placeHolderView];
         [self.placeHolderView freshStatus];
@@ -62,6 +68,14 @@
 
 - (UIView *)placeHolderView {
     return objc_getAssociatedObject(self, @"placeHolderView");
+}
+
+- (void)setPlaceHolderEmptyBlock:(UICollectionViewPlaceHolderEmptyBlock)placeHolderEmptyBlock {
+    objc_setAssociatedObject(self, @"placeHolderEmptyBlock", placeHolderEmptyBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (UICollectionViewPlaceHolderEmptyBlock)placeHolderEmptyBlock {
+    return objc_getAssociatedObject(self, @"placeHolderEmptyBlock");
 }
 
 @end

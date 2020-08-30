@@ -5,7 +5,7 @@ PODS:
   - PoporFoundation/Os (1.02)
   - PoporFoundation/Prefix (1.02):
     - PoporFoundation/Os
-  - PoporPlaceholderView (1.01):
+  - PoporPlaceholderView (1.02):
     - Masonry
     - MJRefresh
     - PoporFoundation/NSObject
@@ -17,7 +17,7 @@ DEPENDENCIES:
   - PoporPlaceholderView (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Masonry
     - MJRefresh
     - PoporFoundation
@@ -31,9 +31,9 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   PoporFoundation: 3bc0abbb2bd3e13083558717185d67abeec25ab0
-  PoporPlaceholderView: 6b5403c7f58622950ef23477da69a047cd92176d
+  PoporPlaceholderView: afebe13895048d2c87bd99cf3175e28cd1560072
   PoporUI: f6e8c424e4c59b489e9315e5116c9dd55f476df9
 
 PODFILE CHECKSUM: c8353af656f4368db75247769cdd649fbe65a7f2
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.10.0.beta.2

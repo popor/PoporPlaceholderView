@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name        = 'PoporPlaceholderView'
-  s.version     = '1.01'
+  s.version     = '1.02'
   s.summary     = 'PlaceholderView uesd for UITableView and UICollectionView.'
 
   s.homepage    = 'https://github.com/popor/PoporPlaceholderView'

@@ -11,7 +11,14 @@
 
 @interface UICollectionView (placeholder)
 
+typedef BOOL(^UICollectionViewPlaceHolderEmptyBlock)(UICollectionView *collectionView, UIView *placeHolderView);
+
 /* 占位图 */
 @property (nonatomic, strong) UIView<PlaceholderViewProtocol> *placeHolderView;
+
+/* 自定义 判断是否显示placeHolderView的block
+ 例如: 假如section = 3, 只有最后section为空或者全部为空的时候显示placeHolderView, 这就需要自定义placeHolderEmptyBlock了.
+ */
+@property (nonatomic, copy  ) UICollectionViewPlaceHolderEmptyBlock placeHolderEmptyBlock;
 
 @end
