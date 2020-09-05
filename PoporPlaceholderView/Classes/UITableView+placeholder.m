@@ -25,11 +25,6 @@
 }
 
 - (void)gy_reloadData {
-    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(delay_gy_reloadData) object:nil];
-    [self performSelector:@selector(delay_gy_reloadData) withObject:nil afterDelay:0.25];
-}
-
-- (void)delay_gy_reloadData {
     [self gy_checkEmpty];
     [self gy_reloadData];
 }
